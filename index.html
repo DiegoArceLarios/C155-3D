@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+    <script src="./Components/Rotation.js"></script>
+    <script src="./Components/Target.js"></script>
+    <script src="./Components/Collider.js"></script>
+
+  </head>
+
+  <body>
+    <a-scene background="color:#026F90">
+
+      <a-entity id="look" look-controls camera position="0 2 20"></a-entity>
+
+      <!--Manejo de recursos-->
+      <a-assets timeout="10000">        
+        <a-assets-item id= "terreno" src = "./assets/models/terrain/scene.gltf"></a-assets-item>
+        <a-assets-item id = "avion" src = "./assets/models/airplane/scene.gltf"></a-assets-item>
+      </a-assets>
+
+      <!-- Terreno  -->
+     <a-entity id = "terrenoModelo" gltf-model = #terreno position = "0 0 0" scale = "0.3 0.3 0.3" 
+     animation = "property: position; to: 0 0 1000; easin: linear; loop: true; dur: 50000" terrain-rotation target-ring>
+     </a-entity>
+
+     <a-entity id = "avionModelo" gltf-model = "#avion"  rotation = "0 90 0" position = "0 2 18" scale = "1 1 1" plane_rotation>
+     </a-entity>
+      
+    </a-scene>
+  </body>
+</html>
